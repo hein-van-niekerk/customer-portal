@@ -1,0 +1,45 @@
+.divForm{
+    width: 25%;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.input{
+    margin: 2%;
+    margin-left: 10%;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 16px;
+}
+
+.input:focus{
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+#btnLogin{
+    margin-top: 2%;
+    margin-left: 35%;
+    width: 37%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#btnLogin:hover{
+    background-color: #0056b3;
+}
