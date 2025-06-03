@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import https from 'https';
 import crypto from 'crypto';
+import mongoose from 'mongoose';
 
 const app = express();
 const options = {
@@ -42,13 +43,19 @@ function generateSessionId() {
   return crypto.randomBytes(16).toString('hex');
 }
 
-// Dummy users
-let users = [
-  {
-    email: "user@example.com",
-    password: "$argon2id$v=19$m=65536,t=3,p=1$HcKMAnyq1qTb7KCEiZzh0g$pXzbUqzbdmLasQlJNBk8Yt7hM9HnHAFFuyn5YiDfzYc" // "secure123"
-  }
-];
+mongoose.connect('mongodb://localhost:27017/authdb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
+
+const User = mongoose.model('User', userSchema);
+
 
 // Login route
 app.post('/api/login', async (req, res) => {
@@ -66,7 +73,7 @@ app.post('/api/login', async (req, res) => {
     }
 
     // Validate user
-    const user = users.find(u => u.email === email);
+    const user = await User.findOne({ email });
     const isValid = user && await verify(user.password, password);
 
     if (!isValid) {
