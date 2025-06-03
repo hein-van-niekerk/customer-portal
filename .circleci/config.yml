@@ -7,21 +7,21 @@ jobs:
 -image: cimg/node:20.3.0
   steps:
 -checkout
--run: npm ci
--run: npm test -- --watchAll=false,
 -run:
-  name: SonarQube Analysis
+    name: Install dependencies
+    command: npm ci
+-run:
+  name: Run tests
+  command: npm test -- --watchAll=false,
+-run:
+  name: Run SonarQube Analysis
   command: |
     npm install --save-dev sonarqube-scanner
-    npx sonarqube-scanner \
-    -Dsonar.projectKey=my-project \
-    -Dsonar.sources=src \
-    -Dsonar.host.url=https://your-sonarqube-server.com/ \
-    -Dsonar.login=$SONAR_TOKEN
+    npx sonarqube-scanner \-Dsonar.projectKey=my-react-app \-Dsonar.organization=my-org-key \-Dsonar.sources=src \-Dsonar.host.url=https://sonarcloud.io/ \-Dsonar.login=$SONAR_TOKEN,
 
 workflows:
   version: 2
-  scan_and_test:
+  build_and_analyze:
     jobs:
       
 -build
