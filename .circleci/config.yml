@@ -18,7 +18,16 @@ jobs:
   command: |
     npm install --save-dev sonarqube-scanner
     npx sonarqube-scanner \-Dsonar.projectKey=my-react-app \-Dsonar.organization=my-org-key \-Dsonar.sources=src \-Dsonar.host.url=https://sonarcloud.io/ \-Dsonar.login=$SONAR_TOKEN,
-
+-run:
+name: run sonarqube scan
+command: | 
+npm install --save-dev sonarqube-scanner
+npx sonarqube-scanner \
+-Dsonar.projectKey = customer-portal \
+-Dsonar.organization = sonar-administrators \
+-Dsonar.sources = src \
+-Dsonar.host.url = http://localhost:9000 \
+-Dsonar.login = $SONAR_TOKEN
 workflows:
   version: 2
   build_and_analyze:
