@@ -22,7 +22,7 @@ jobs:
             npm install --save-dev sonarqube-scanner
             npx sonarqube-scanner \
               -Dsonar.projectKey=hein-van-niekerk_customer-portal \
-              -Dsonar.organization=sonar-administrators \
+              -Dsonar.organization=hein-van-niekerk \
               -Dsonar.sources=src \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.login=$SONAR_TOKEN
