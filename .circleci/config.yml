@@ -10,7 +10,7 @@ jobs:
           name: Install dependencies
           command: npm ci
       - run:
-          name: Run tests
+          name: Run Jest tests
           command: npm run test -- --watchAll=false
       - run:
           name: Run SonarQube Analysis (SonarCloud)
