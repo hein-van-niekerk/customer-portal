@@ -1,5 +1,4 @@
 version: 2.1
-
 jobs:
   build:
     docker:
@@ -32,7 +31,6 @@ jobs:
               -Dsonar.sources=src \
               -Dsonar.host.url=http://localhost:9000 \
               -Dsonar.login=$SONAR_TOKEN
-
 workflows:
   version: 2
   build_and_analyze:
