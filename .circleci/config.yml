@@ -13,7 +13,7 @@ jobs:
           name: Run tests
           command: npm test -- --watchAll=false
       - run:
-          name: Run SonarQube Analysis
+          name: Run SonarQube Analysis (SonarCloud)
           command: |
             npm install --save-dev sonarqube-scanner
             npx sonarqube-scanner \
@@ -23,7 +23,7 @@ jobs:
               -Dsonar.host.url=https://sonarcloud.io/ \
               -Dsonar.login=$SONAR_TOKEN
       - run:
-          name: Run SonarQube Scan (Local)
+          name: Run SonarQube Analysis (Local)
           command: |
             npm install --save-dev sonarqube-scanner
             npx sonarqube-scanner \
