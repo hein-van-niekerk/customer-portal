@@ -11,7 +11,7 @@ jobs:
           command: npm ci
       - run:
           name: Run tests
-          command: npm test -- --watchAll=false
+          command: npm run test -- --watchAll=false
       - run:
           name: Run SonarQube Analysis (SonarCloud)
           command: |
