@@ -21,10 +21,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "test": "jest",
     "start": "react-scripts start",
     "server": "node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "test": "jest"
+    "dev": "concurrently \"npm run server\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": [

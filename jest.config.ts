@@ -1,3 +1,16 @@
+module.exports = {
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+  testEnvironment: "jsdom",
+
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+  },
+
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+  },
+};
+
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
